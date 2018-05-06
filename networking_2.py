@@ -1,5 +1,5 @@
 import socket
-
+import requests
 socket.setdefaulttimeout(2)
 
 s = socket.socket()
