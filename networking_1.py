@@ -1,5 +1,5 @@
 import socket
-
+import sqlmap
 socket.setdefaulttimeout(2)
 
 s = socket.socket()
