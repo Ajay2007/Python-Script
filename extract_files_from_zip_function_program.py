@@ -1,4 +1,5 @@
 import zipfile
+from threading import thread
 
 def extract_file(z_file, password):
     try:
@@ -14,6 +15,10 @@ def main():
     for line in pass_file.readlines():
         password = line.strip('\n')
         guess =extract_file(z_file, password)
+        
+        t = Tread(target=extract_file, args=(z_file, password))
+
+        t.start()
 
         if guess:
 
