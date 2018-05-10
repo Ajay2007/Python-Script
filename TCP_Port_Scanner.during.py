@@ -32,14 +32,17 @@ if (tgtHost == None) | (tgtPort == None):
 
 
 """
-    --- Part 3 ---
-Next, we will build two functions connScan and portScan . The portScan function takes the hostname and target ports as arguments.
-It will first attemp to resolve an IP address to a friendly hostname using the gethostbynme() function.
+    									--- Part 3 ---
+Next, we will build two functions connScan and portScan . The portScan function takes the hostname and
+target ports as arguments.It will first attemp to resolve an IP address to a friendly hostname using 
+the gethostbynme() function.
 
-Next , it will print the hostname (or IP address) and enumerate through each individual port attempting to connect using the connScan function
+Next , it will print the hostname (or IP address) and enumerate through each individual port attempting
+ to connect using the connScan function
 
-The connScan function will take two arguments: tgtHost and tgtPort and attempt to create a connection to the target host and port. It it is successfull,
-connScan will print and open port message. If unsuccessful, it will print the closed port message.
+The connScan function will take two arguments: tgtHost and tgtPort and attempt to create a connection to 
+the target host and port. It it is successfull,connScan will print and open port message. If unsuccessful, 
+it will print the closed port message.
 """
 
 from socket import *
@@ -92,18 +95,21 @@ def portScan(tgtHost, tgtPorts):
 """
     --- Part 3 ---
 Applicatoin Banner Grabbing
-In order to grab the application banner from out target host, we must insert additional code into the connScan function.
+In order to grab the application banner from out target host, we must insert additional code into the
+connScan function.
 
-After discovering an open port, we send a string of data to the port and wait for the response. Gathering this response 
-might give us an indication of the application running on the target host and port.
+After discovering an open port, we send a string of data to the port and wait for the response. 
+Gathering this response might give us an indication of the application running on the target host 
+and port.
 
 For this additional method I am writting code in the comment and add later to the final program
 
-connSkt.send('Violent Python\r\n')
 
-results = connSkt.recv(100)
+					connSkt.send('Violent Python\r\n')
 
-print '[+] ' + str(results)
+					results = connSkt.recv(100)
+
+					print '[+] ' + str(results)
 
 """
 
@@ -154,8 +160,8 @@ for tgtPort in tgtPorts:
 5. In order to allow a function a function to have complete control of the screen, we will use a semaphore.
     A simple semaphore provides us alock to prevent other threads from proceeding. Notice that prior to printing
     an output,  we grabbed a hold of the lock using screenLock.acquire(). If open, the semaphore will grant us
-    access to preceed and we will print to the screen. If locked we'll have to wait untill the thread holding the semaphore
-    releases the lock.
+    access to preceed and we will print to the screen. If locked we'll have to wait untill the thread holding 
+    the semaphore releases the lock.
 
     screenLock = Semaphore(value=1)
 
